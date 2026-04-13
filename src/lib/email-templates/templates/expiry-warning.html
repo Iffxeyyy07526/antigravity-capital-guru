@@ -28,6 +28,9 @@
     .alert-box { background: rgba(250, 204, 21, 0.05); border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 12px; padding: 25px; margin-top: 30px; text-align: left; }
     .alert-title { color: #FACC15; font-weight: 700; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; }
     .gold-accent { color: #C5A059; font-weight: 600; }
+    .disconnection-note { margin: 0; font-size: 14px; color: #BBBBBB; }
+    .small-muted { font-size: 14px; opacity: 0.6; }
+    .supp-link { color: #666; }
   </style>
 </head>
 <body>
@@ -48,7 +51,7 @@
           
           <div class="alert-box">
             <div class="alert-title">Disconnection Warning</div>
-            <p style="margin: 0; font-size: 14px; color: #BBBBBB;">
+            <p class="disconnection-note">
               Once your subscription expires, your Telegram access will be revoked automatically. A single profitable trade often covers more than the cost of a full year's access. Don't lose the momentum.
             </p>
           </div>
@@ -56,7 +59,7 @@
           <div class="cta-container" align="center">
             <a href="{{renewal_link}}" class="button">Renew Subscription Now</a>
           </div>
-          <p class="body-text" style="font-size: 14px; opacity: 0.6;">
+          <p class="body-text small-muted">
             Questions? Reply to this email or contact our desk.
           </p>
         </td>
@@ -71,7 +74,7 @@
         <td class="footer">
           <p class="footer-text">
             &copy; 2024 The Capital Guru. Precision and Profitability.<br>
-            <span style="color: #666;">Institutional signals for retail traders.</span>
+            <span class="supp-link">Institutional signals for retail traders.</span>
           </p>
         </td>
       </tr>
