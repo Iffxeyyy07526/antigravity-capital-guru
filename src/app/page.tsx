@@ -264,68 +264,75 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 5: PRICING ── */}
-      <section id="pricing" className="py-28 md:py-40 fade-up [animation-delay:400ms]">
+      <section id="pricing" className="py-32 md:py-48 fade-up [animation-delay:400ms]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-24 text-on-surface">
-            <h2 className="font-display font-semibold text-5xl sm:text-6xl tracking-[-0.01em] mb-6 text-on-surface">
+            <h2 className="font-display font-semibold text-5xl sm:text-6xl tracking-tight mb-6 text-on-surface">
               Select Your Edge
             </h2>
-            <p className="text-on-surface-muted text-[19px] leading-[1.6] font-body">
-              A single profitable trade pays for an entire year.
+            <p className="text-on-surface-muted text-[19px] leading-[1.6] font-body max-w-xl mx-auto">
+              Choose the precision level that fits your capital. A single profitable trade can pay for an entire year.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-stretch">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`relative bg-surface/40 rounded-[20px] p-10 lg:p-12 flex flex-col transition-all duration-400 glass-card-hover ${
+                className={`relative flex flex-col transition-all duration-500 rounded-[24px] overflow-hidden ${
                   plan.isPopular
-                    ? 'border-primary/50 shadow-[0_4px_30px_rgba(93,214,44,0.15)] md:scale-[1.04] z-10 bg-surface/70'
-                    : 'border-outline-variant glass-card'
-                }`}
+                    ? 'bg-surface/60 border border-primary/40 shadow-[0_12px_48px_rgba(93,214,44,0.12)] md:scale-[1.05] z-10'
+                    : 'bg-surface/30 border border-outline-variant glass-card'
+                } p-10 lg:p-12 group`}
               >
+                {/* Visual Depth: Subtle internal glow for the popular card */}
+                {plan.isPopular && (
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl pointer-events-none" />
+                )}
+
                 {/* Badge */}
                 {plan.badge && (
-                  <div className={`absolute -top-4 left-1/2 -translate-x-1/2 text-[11px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full ${
-                    plan.isPopular ? 'bg-primary text-black animate-pulse' : 'bg-surface border border-outline-variant text-primary'
+                  <div className={`absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-[0.1em] uppercase px-5 py-2 rounded-full ${
+                    plan.isPopular ? 'bg-primary text-black' : 'bg-[#151916] border border-outline-variant text-primary'
                   }`}>
                     {plan.badge}
                   </div>
                 )}
 
-                <h3 className="font-display font-medium text-on-surface text-[22px] mb-2 mt-4">{plan.name}</h3>
+                <h3 className="font-display font-medium text-on-surface text-[24px] mb-2 mt-4 tracking-tight">{plan.name}</h3>
 
                 <div className="mb-8 flex items-baseline">
                   {plan.originalPrice && (
-                    <span className="text-on-surface-muted line-through text-xl mr-3 font-medium">₹{plan.originalPrice}</span>
+                    <span className="text-on-surface-muted line-through text-xl mr-3 font-medium opacity-50">₹{plan.originalPrice}</span>
                   )}
-                  <span className="font-display font-semibold text-on-surface text-[48px] tracking-tight">₹{plan.price}</span>
-                  <span className="text-on-surface-muted text-sm ml-2 font-medium">{plan.period}</span>
+                  <span className="font-display font-semibold text-on-surface text-[52px] tracking-tight">₹{plan.price}</span>
+                  <span className="text-on-surface-muted text-sm ml-2 font-medium opacity-70">{plan.period}</span>
                 </div>
 
-                <div className="w-full h-px bg-outline-variant mb-8" />
+                <div className="w-full h-px bg-white/5 mb-8" />
 
                 <ul className="space-y-4 mb-10 flex-1">
                   {plan.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-3 text-on-surface-muted text-[15px] font-body">
-                      <span className="text-primary mt-0.5">✓</span>
+                    <li key={feat} className="flex items-start gap-4 text-on-surface-muted text-[15px] font-body leading-relaxed group-hover:text-on-surface transition-colors">
+                      <span className="text-primary mt-1 text-[12px]">✓</span>
                       {feat}
                     </li>
                   ))}
                 </ul>
 
-                <Link href="/register" className={`w-full text-center py-4 rounded-xl font-semibold tracking-wide transition-all ${
-                  plan.isPopular 
-                    ? 'bg-primary text-black hover:bg-[#6AF033] hover:shadow-[0_0_20px_rgba(93,214,44,0.4)]' 
-                    : 'bg-surface border border-primary/30 text-primary hover:bg-primary/5'
-                }`}>
-                  Select {plan.name}
+                <Link 
+                  href="/register" 
+                  className={`w-full text-center py-4.5 rounded-xl font-semibold tracking-wide transition-all duration-300 ${
+                    plan.isPopular 
+                      ? 'bg-primary text-black hover:bg-[#6AF033] hover:shadow-[0_8px_24px_rgba(93,214,44,0.3)] hover:-translate-y-0.5' 
+                      : 'bg-white/5 border border-white/10 text-on-surface hover:bg-white/10'
+                  }`}
+                >
+                  {plan.name === 'Elite' ? 'Go Elite' : 'Start Receiving Signals'}
                 </Link>
                 
-                {/* Risk Reversal under button */}
-                <p className="text-center text-on-surface-muted text-[11px] mt-4 opacity-70">
-                  Secure checkout via Razorpay
+                <p className="text-center text-on-surface-muted text-[11px] mt-5 opacity-40 font-body">
+                  Secure checkout via Razorpay &bull; Instant Access
                 </p>
               </div>
             ))}

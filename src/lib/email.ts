@@ -1,89 +1,49 @@
 import { Resend } from 'resend'
-import {
-  getWelcomeEmailHtml,
-  getExpiryReminderHtml,
-  getExpiredEmailHtml,
-  getPasswordResetHtml,
-  getRegistrationWelcomeHtml,
-} from './email-templates'
+import { config } from './config'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+/**
+ * The Capital Guru - Central Email Service
+ * High-reliability wrapper for Resend API.
+ * Handles:
+ * 1. Safe Initialization
+ * 2. Logging
+ * 3. Fallback / Error Handling
+ */
 
-const FROM = `${process.env.RESEND_FROM_NAME || 'The Capital Guru'} <${process.env.RESEND_FROM_EMAIL || 'noreply@thecapitalguru.net'}>`
+const resend = config.resend.apiKey ? new Resend(config.resend.apiKey) : null
 
-export async function sendTelegramAccessEmail(data: {
-  to: string
-  first_name: string
-  plan_name: string
-  start_date: string
-  end_date: string
-  amount: string
-  telegram_link: string
-}) {
-  return resend.emails.send({
-    from: FROM,
-    to: data.to,
-    subject: '🎯 Your Capital Guru Access is Ready — Join Telegram Now',
-    html: getWelcomeEmailHtml(data),
-  })
+interface EmailPayload {
+  to: string | string[]
+  subject: string
+  html: string
+  text?: string
 }
 
-export async function sendExpiryReminderEmail(data: {
-  to: string
-  first_name: string
-  plan_name: string
-  end_date: string
-  days_remaining: 7 | 1
-}) {
-  const subject = data.days_remaining === 7
-    ? '⏰ Your Capital Guru subscription expires in 7 days'
-    : '🚨 Last chance — Subscription expires TOMORROW'
+export async function sendEmail({ to, subject, html, text }: EmailPayload) {
+  if (!resend) {
+    console.warn('[Email] Resend client not initialized - skipping send.')
+    return { success: false, error: 'Resend API key missing' }
+  }
 
-  const html = getExpiryReminderHtml(data)
+  try {
+    const { data, error } = await resend.emails.send({
+      from: `${config.resend.fromName} <${config.resend.fromEmail}>`,
+      to,
+      subject,
+      html,
+      text: text || 'This email requires a client that supports HTML.',
+    })
 
-  return resend.emails.send({
-    from: FROM,
-    to: data.to,
-    subject,
-    html,
-  })
-}
+    if (error) {
+      console.error('[Email] Send error:', error)
+      return { success: false, error }
+    }
 
-export async function sendExpiredEmail(data: {
-  to: string
-  first_name: string
-  plan_name: string
-  end_date: string
-}) {
-  return resend.emails.send({
-    from: FROM,
-    to: data.to,
-    subject: 'Your Capital Guru access has expired',
-    html: getExpiredEmailHtml(data),
-  })
-}
-
-export async function sendPasswordResetEmail(data: {
-  to: string
-  first_name: string
-  reset_link: string
-}) {
-  return resend.emails.send({
-    from: FROM,
-    to: data.to,
-    subject: 'Reset your Capital Guru password',
-    html: getPasswordResetHtml(data),
-  })
-}
-
-export async function sendWelcomeEmail(data: {
-  to: string
-  first_name: string
-}) {
-  return resend.emails.send({
-    from: FROM,
-    to: data.to,
-    subject: 'Welcome to The Capital Guru 👋',
-    html: getRegistrationWelcomeHtml(data),
-  })
+    console.log(`[Email] Successfully sent to ${Array.isArray(to) ? to.join(', ') : to} | Subject: ${subject}`)
+    return { success: true, data }
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unexpected failure'
+    console.error('[Email] Unexpected failure:', error)
+    return { success: false, error: message }
+  }
 }

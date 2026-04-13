@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Toaster } from 'react-hot-toast'
 import FloatingTelegramButton from '@/components/FloatingTelegramButton'
+import ErrorBoundary from '@/components/ErrorBoundary'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -46,7 +47,9 @@ export default function RootLayout({
             },
           }}
         />
-        {children}
+        <ErrorBoundary>
+          {children}
+        </ErrorBoundary>
         <FloatingTelegramButton />
       </body>
     </html>
