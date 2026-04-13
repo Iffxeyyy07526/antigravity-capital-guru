@@ -1,0 +1,13 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/subscription-check",
+      "schedule": "30 3 * * *"
+    }
+  ],
+  "functions": {
+    "app/api/**": {
+      "maxDuration": 30
+    }
+  }
+}
