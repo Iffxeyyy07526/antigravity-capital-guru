@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Confirmed | The Capital Guru</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important; background-color: #0B0B0B; font-family: 'Inter', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    table { border-spacing: 0; border-collapse: collapse; }
+    td { padding: 0; }
+    img { border: 0; }
+    .wrapper { width: 100%; table-layout: fixed; background-color: #0B0B0B; padding-bottom: 60px; }
+    .main { background-color: #161616; margin: 0 auto; width: 100%; max-width: 600px; border-spacing: 0; color: #E0E0E0; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
+    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800') center/cover; padding: 60px 40px; text-align: center; }
+    .logo { color: #5DD62C; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; margin-bottom: 40px; }
+    .headline { font-size: 32px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .subhead { font-size: 16px; color: #999999; line-height: 1.5; }
+    .content { padding: 40px 50px; text-align: center; }
+    .body-text { font-size: 16px; line-height: 1.6; color: #999999; margin-bottom: 30px; }
+    .cta-container { margin: 40px 0; }
+    .button { background-color: #5DD62C; color: #000000 !important; font-weight: 700; padding: 18px 45px; border-radius: 12px; text-decoration: none; font-size: 16px; display: inline-block; letter-spacing: 0.5px; }
+    .social-section { background-color: #1A1A1A; padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .social-text { color: #FFFFFF; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
+    .social-link { color: #5DD62C; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .footer { padding: 40px; text-align: center; }
+    .footer-text { font-size: 12px; color: #555555; line-height: 1.8; }
+    .value-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin-top: 30px; text-align: left; }
+    .value-title { color: #5DD62C; font-weight: 700; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; }
+    .gold-accent { color: #C5A059; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table class="main" align="center">
+      <tr>
+        <td class="hero">
+          <div class="logo">THE CAPITAL GURU</div>
+          <h1 class="headline">Payment Confirmed</h1>
+          <p class="subhead">Your access to market alpha is now active.</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="content">
+          <p class="body-text">
+            Success, {{name}}. Your premium membership has been confirmed. You are now part of an elite group receiving direct, mechanical signals for the Indian Stock Market.
+          </p>
+          
+          <div class="value-box">
+            <div class="value-title">Access Instructions</div>
+            <p style="margin: 0; font-size: 14px; color: #BBBBBB;">
+              1. Click the button below to join our private Telegram group.<br>
+              2. Your request will be automatically approved based on your registered email.<br>
+              3. Notifications must be enabled to execute signals in real-time.
+            </p>
+          </div>
+
+          <div class="cta-container" align="center">
+            <a href="{{telegram_invite_link}}" class="button">Join Telegram Group</a>
+          </div>
+          <p class="body-text" style="font-size: 14px; opacity: 0.6;">
+            Having trouble? Contact our institutional desk at <span class="gold-accent">support@thecapitalguru.net</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td class="social-section">
+          <div class="social-text">Follow us for insights & updates</div>
+          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">👉 Follow on Instagram</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="footer">
+          <p class="footer-text">
+            &copy; 2024 The Capital Guru. All rights reserved.<br>
+            Note: All signals are for educational purposes and institutional evaluation.
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

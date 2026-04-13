@@ -1,143 +1,108 @@
 /**
- * The Capital Guru - Premium Dark Email System
- * All templates utilize the #0B0F0C background and #5DD62C accent.
- * Designed for 600px width and mobile responsiveness.
+ * The Capital Guru - Institutional Branded Communication System
+ * Background: #0B0B0B | Accent: #5DD62C | Secondary: Gold
+ * Optimized for high conversion and premium feel.
  */
 
 const getBaseStyles = () => `
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-    body { margin: 0; padding: 0; background-color: #0B0F0C; font-family: 'Inter', Helvetica, Arial, sans-serif; color: #E5E7EB; }
-    .container { max-width: 600px; margin: 0 auto; background-color: #0B0F0C; padding: 40px 20px; }
-    .card { background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
-    .header { margin-bottom: 32px; text-align: center; }
-    .logo { font-size: 24px; font-weight: 700; color: #5DD62C; letter-spacing: -1px; }
-    h1 { font-size: 28px; font-weight: 600; color: #F8F8F8; margin-top: 0; margin-bottom: 16px; line-height: 1.2; }
-    p { font-size: 16px; line-height: 1.6; color: #9CA3AF; margin-bottom: 20px; }
-    .btn { display: inline-block; background-color: #5DD62C; color: #0B0F0C !important; font-weight: 600; padding: 14px 32px; border-radius: 999px; text-decoration: none; font-size: 16px; transition: all 0.3s ease; }
-    .footer { text-align: center; font-size: 13px; color: #4B5563; margin-top: 40px; }
-    .stats-row { border-top: 1px solid rgba(255, 255, 255, 0.06); padding-top: 20px; margin-top: 20px; display: table; width: 100%; }
-    .stat-item { display: table-cell; width: 33%; text-align: center; }
-    .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #6B7280; margin-bottom: 4px; }
-    .stat-value { font-size: 18px; font-weight: 600; color: #5DD62C; }
-    .badge { background: rgba(93, 214, 44, 0.1); border: 1px solid rgba(93, 214, 44, 0.2); color: #5DD62C; padding: 4px 12px; border-radius: 99px; font-size: 11px; font-weight: 700; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; background-color: #0B0B0B; font-family: 'Inter', sans-serif; }
+    .main { background-color: #161616; margin: 0 auto; width: 600px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); overflow: hidden; }
+    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1611974717414-78330caec704?auto=format&fit=crop&q=80&w=800') center/cover; padding: 60px 40px; text-align: center; }
+    .logo { color: #5DD62C; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; margin-bottom: 40px; }
+    .button { background-color: #5DD62C; color: #000; font-weight: 700; padding: 18px 45px; border-radius: 12px; text-decoration: none; display: inline-block; }
+    .content { padding: 40px 50px; text-align: center; color: #999; line-height: 1.6; }
+    .social-section { background-color: #1A1A1A; padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer { padding: 40px; text-align: center; font-size: 12px; color: #555; }
   </style>
 `
 
-/* ── 1. WELCOME TEMPLATE ── */
-export const welcomeTemplate = (name: string) => `
-  <!DOCTYPE html>
-  <html>
-    <head>${getBaseStyles()}</head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <div class="logo">THE CAPITAL GURU</div>
-        </div>
-        <div class="card">
-          <h1>Welcome to the Inner Circle, ${name} 🚀</h1>
-          <p>You've just taken the first step toward mechanical trading precision. No more emotional guesswork—just high-signal market alpha delivered directly to your fingertips.</p>
-          <p>Join our private Telegram community now to start receiving real-time signals and connect with 2,400+ serious traders.</p>
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="https://t.me/thecapitalguru" class="btn">Join Elite Telegram</a>
-          </div>
-        </div>
-        <div class="footer">
-          &copy; ${new Date().getFullYear()} The Capital Guru. All signals are for educational purposes.
-        </div>
-      </div>
-    </body>
-  </html>
+const getSocialSection = () => `
+  <tr>
+    <td class="social-section">
+      <div style="color: #FFF; font-size: 14px; margin-bottom: 15px;">Follow us for insights & updates</div>
+      <a href="https://www.instagram.com/thecapitalguru.in" style="color: #5DD62C; font-weight: 600; text-decoration: none;">👉 Follow on Instagram</a>
+    </td>
+  </tr>
 `
 
-/* ── 2. PAYMENT TEMPLATE ── */
-export const paymentTemplate = (data: { name: string; amount: string; plan: string; date: string }) => `
-  <!DOCTYPE html>
-  <html>
-    <head>${getBaseStyles()}</head>
-    <body>
-      <div class="container">
-        <div class="header"><div class="logo">THE CAPITAL GURU</div></div>
-        <div class="card">
-          <div style="margin-bottom: 24px;"><span class="badge">PAYMENT CONFIRMED ✅</span></div>
-          <h1>Access Activated: ${data.plan}</h1>
-          <p>Hello ${data.name}, your payment of ₹${data.amount} was successful. Your elite access has been provisioned and is active as of ${data.date}.</p>
-          
-          <div class="stats-row">
-            <div class="stat-item">
-              <div class="stat-label">Plan</div>
-              <div class="stat-value">${data.plan}</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-label">Amount</div>
-              <div class="stat-value">₹${data.amount}</div>
-            </div>
-          </div>
-
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="https://thecapitalguru.net/dashboard" class="btn">Access Terminal</a>
-          </div>
-        </div>
-        <div class="footer">Razorpay Secure Transaction ID: TXN_${Math.random().toString(36).slice(2, 9).toUpperCase()}</div>
-      </div>
-    </body>
-  </html>
+/* ── 1. AUTH EMAIL ── */
+export const authVerifyTemplate = (name: string, link: string) => `
+  <!DOCTYPE html><html><head>${getBaseStyles()}</head><body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#0B0B0B"><tr><td align="center" style="padding: 20px 0;">
+      <table class="main" width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr><td class="hero"><div class="logo">THE CAPITAL GURU</div><h1 style="font-size: 32px; color: #FFF; margin: 0;">Secure Your Account</h1></td></tr>
+        <tr><td class="content">
+          <p>Welcome to the elite circle, ${name}. To maintain the highest level of security and ensure you receive our premium NSE signals, please verify your email address.</p>
+          <div style="margin: 40px 0;"><a href="${link}" class="button">Verify Email Address</a></div>
+        </td></tr>
+        ${getSocialSection()}
+        <tr><td class="footer">&copy; 2024 The Capital Guru. All rights reserved.</td></tr>
+      </table>
+    </td></tr></table>
+  </body></html>
 `
 
-/* ── 3. SIGNAL TEMPLATE ── */
-export const signalTemplate = (data: { stock: string; entry: string; sl: string; target: string }) => `
-  <!DOCTYPE html>
-  <html>
-    <head>${getBaseStyles()}</head>
-    <body>
-      <div class="container">
-        <div class="header"><div class="logo">THE CAPITAL GURU</div></div>
-        <div class="card" style="border-left: 4px solid #5DD62C;">
-          <div style="margin-bottom: 16px;"><span class="badge">NEW SIGNAL ALERT 📈</span></div>
-          <h1 style="margin-bottom: 8px;">BUY: ${data.stock}</h1>
-          <p style="margin-bottom: 24px;">Our option chain analysis indicates a massive momentum shift. Execute now within the entry zone.</p>
-          
-          <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 24px;">
-            <div style="margin-bottom: 12px; display: flex; justify-content: space-between;">
-              <span style="color: #9CA3AF;">Entry Zone</span>
-              <span style="color: #F8F8F8; font-weight: 600;">₹${data.entry}</span>
-            </div>
-            <div style="margin-bottom: 12px; display: flex; justify-content: space-between;">
-              <span style="color: #9CA3AF;">Target</span>
-              <span style="color: #5DD62C; font-weight: 600;">₹${data.target}</span>
-            </div>
-            <div style="display: flex; justify-content: space-between;">
-              <span style="color: #9CA3AF;">Stop Loss</span>
-              <span style="color: #EF4444; font-weight: 600;">₹${data.sl}</span>
-            </div>
+/* ── 2. PAYMENT CONFIRMATION ── */
+export const paymentTemplate = (data: { name: string; amount: string; plan: string; link: string }) => `
+  <!DOCTYPE html><html><head>${getBaseStyles()}</head><body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#0B0B0B"><tr><td align="center" style="padding: 20px 0;">
+      <table class="main" width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr><td class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800');">
+          <div class="logo">THE CAPITAL GURU</div><h1 style="font-size: 32px; color: #FFF; margin: 0;">Payment Confirmed</h1>
+        </td></tr>
+        <tr><td class="content">
+          <p>Success, ${data.name}. Your active access to ${data.plan} is now provisioned. Get ready to execute institutional-grade signals.</p>
+          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 25px; margin-top: 30px; text-align: left;">
+            <div style="color: #5DD62C; font-weight: 700; font-size: 14px; margin-bottom: 10px;">INSTRUCTIONS</div>
+            <p style="margin: 0; font-size: 14px;">1. Click join below.<br>2. Approved within minutes.<br>3. Enable notifications.</p>
           </div>
-          
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="https://t.me/thecapitalguru" class="btn">View on Telegram</a>
-          </div>
-        </div>
-      </div>
-    </body>
-  </html>
+          <div style="margin: 40px 0;"><a href="${data.link}" class="button">Join Telegram Group</a></div>
+        </td></tr>
+        ${getSocialSection()}
+        <tr><td class="footer">Verification ID: ${Math.random().toString(36).slice(2, 10).toUpperCase()}</td></tr>
+      </table>
+    </td></tr></table>
+  </body></html>
 `
 
-/* ── 4. REMINDER TEMPLATE ── */
-export const reminderTemplate = (name: string, days: number) => `
-  <!DOCTYPE html>
-  <html>
-    <head>${getBaseStyles()}</head>
-    <body>
-      <div class="container">
-        <div class="header"><div class="logo">THE CAPITAL GURU</div></div>
-        <div class="card" style="border-top: 4px solid #FACC15;">
-          <h1>Access Expiring in ${days} Days 🚨</h1>
-          <p>Hello ${name}, your Guru Elite access is scheduled to expire soon. Don't lose your market edge—renew now to maintain uninterrupted access to real-time Telegram signals.</p>
-          <p>A single profitable trade pays for the entire year. Keep the momentum going.</p>
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="https://thecapitalguru.net/pricing" class="btn">Renew Subscription</a>
-          </div>
-        </div>
-      </div>
-    </body>
-  </html>
+/* ── 3. WELCOME EMAIL ── */
+export const welcomeTemplate = (name: string, link: string) => `
+  <!DOCTYPE html><html><head>${getBaseStyles()}</head><body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#0B0B0B"><tr><td align="center" style="padding: 20px 0;">
+      <table class="main" width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr><td class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1642543448553-902264560b0e?auto=format&fit=crop&q=80&w=800');">
+          <div class="logo">THE CAPITAL GURU</div><h1 style="font-size: 32px; color: #FFF; margin: 0;">Phase One Complete</h1>
+        </td></tr>
+        <tr><td class="content">
+          <p>Hello ${name}, you've officially joined the registry. We provide mechanical signals backed by rigorous analytic models derived from institutional option chain data.</p>
+          <div style="margin: 40px 0;"><a href="${link}" class="button">View Access Plans</a></div>
+        </td></tr>
+        ${getSocialSection()}
+        <tr><td class="footer">Institutional Signals. Minimalist Execution.</td></tr>
+      </table>
+    </td></tr></table>
+  </body></html>
 `
+
+/* ── 4. EXPIRY WARNING ── */
+export const reminderTemplate = (name: string, days: number, link: string) => `
+  <!DOCTYPE html><html><head>${getBaseStyles()}</head><body>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#0B0B0B"><tr><td align="center" style="padding: 20px 0;">
+      <table class="main" width="600" border="0" cellspacing="0" cellpadding="0">
+        <tr><td class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&q=80&w=800');">
+          <div class="logo">THE CAPITAL GURU</div><h1 style="font-size: 32px; color: #FFF; margin: 0;">Maintain Your Edge</h1>
+          <p style="color: #FACC15; font-weight: 600; margin-top: 10px;">Expiring in ${days} days</p>
+        </td></tr>
+        <tr><td class="content">
+          <p>Hello ${name}, your current access is coming to an end. Renew now to maintain uninterrupted access to real-time signals and community insights.</p>
+          <div style="margin: 40px 0;"><a href="${link}" class="button">Renew Subscription Now</a></div>
+        </td></tr>
+        ${getSocialSection()}
+        <tr><td class="footer">&copy; 2024 The Capital Guru.</td></tr>
+      </table>
+    </td></tr></table>
+  </body></html>
+`
+
