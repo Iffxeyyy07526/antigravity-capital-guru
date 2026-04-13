@@ -1,15 +1,32 @@
-import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+'use client'
 
-/* ─── Feature Data (Outcome Focused) ─── */
+import React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { 
+  Rocket, 
+  ShieldCheck, 
+  Zap, 
+  TrendingUp, 
+  BarChart3, 
+  Users, 
+  ChevronRight,
+  ArrowUpRight,
+  Target,
+  Mail,
+  Camera,
+  CheckCircle2
+} from 'lucide-react'
+import Navbar from '@/components/Navbar'
+
+/* ─── DATA ─── */
 const features = [
-  { icon: '📡', title: 'Never Miss a Trade', desc: 'Instant Telegram alerts with exact entry, stop-loss, and target levels.' },
-  { icon: '⚡', title: 'Trade Without Hesitation', desc: 'Crystal clear signals remove emotional guesswork from your execution.' },
-  { icon: '📈', title: 'Consistent Market Edge', desc: 'Battle-tested strategies for both intraday momentum and positional swings.' },
-  { icon: '🛡️', title: 'Protect Your Capital', desc: 'Strict risk-reward ratios and mechanical stop-losses on every single alert.' },
-  { icon: '📊', title: 'Master Options Data', desc: 'Deep option chain analysis decoded into simple buy/sell triggers.' },
-  { icon: '🤝', title: 'Grow With Elites', desc: 'Join 2,400+ serious traders sharing real-time market alpha and support.' },
+  { icon: <TrendingUp className="w-6 h-6" />, title: 'Never Miss a Trade', desc: 'Instant Telegram alerts with exact entry, stop-loss, and target levels.' },
+  { icon: <Zap className="w-6 h-6" />, title: 'Trade Without Hesitation', desc: 'Crystal clear signals remove emotional guesswork from your execution.' },
+  { icon: <Target className="w-6 h-6" />, title: 'Consistent Market Edge', desc: 'Battle-tested strategies for both intraday momentum and positional swings.' },
+  { icon: <ShieldCheck className="w-6 h-6" />, title: 'Protect Your Capital', desc: 'Strict risk-reward ratios and mechanical stop-losses on every single alert.' },
+  { icon: <BarChart3 className="w-6 h-6" />, title: 'Master Options Data', desc: 'Deep option chain analysis decoded into simple buy/sell triggers.' },
+  { icon: <Users className="w-6 h-6" />, title: 'Grow With Elites', desc: 'Join 2,400+ serious traders sharing real-time market alpha.' },
 ]
 
 const stats = [
@@ -25,7 +42,6 @@ const plans = [
     price: '2,499',
     period: '/mo',
     originalPrice: null,
-    badge: null,
     isPopular: false,
     features: ['Daily market signals', 'Telegram group access', 'Email support'],
   },
@@ -34,7 +50,6 @@ const plans = [
     price: '11,999',
     period: '/6mo',
     originalPrice: '14,994',
-    badge: 'MOST POPULAR',
     isPopular: true,
     features: ['Daily market signals', 'Telegram group access', 'Priority support', 'Intraday alerts', 'Option chain analysis'],
   },
@@ -43,317 +58,310 @@ const plans = [
     price: '19,999',
     period: '/yr',
     originalPrice: '29,988',
-    badge: 'BEST VALUE',
     isPopular: false,
-    features: ['Daily market signals', 'Telegram group access', '24/7 VIP support', 'Intraday alerts', 'Option chain analysis', 'Monthly 1-on-1 consultation', 'Portfolio review'],
+    features: ['Daily market signals', 'VIP 24/7 support', 'Option chain analysis', 'Portfolio review', 'Consultation'],
   },
 ]
 
-
 export default function HomePage() {
   return (
-    <>
+    <div className="bg-[#050505] min-h-screen text-white selection:bg-primary/30">
       <Navbar />
 
-      {/* ── SECTION 1: HERO ── */}
-      <section className="relative min-h-[90vh] flex items-center pt-32 pb-24 overflow-hidden fade-up">
-        {/* Extreme minimal glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] bg-primary/[0.02] rounded-full blur-[140px] pointer-events-none" />
+      {/* ── HERO SECTION ── */}
+      <section className="relative pt-40 pb-32 overflow-hidden">
+        {/* Elite background accents */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-primary/5 blur-[120px] pointer-events-none" />
+        <div className="absolute -top-[10%] right-[10%] w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-8">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Live Now: NSE Momentum Triggers</span>
+            </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left content */}
-          <div className="max-w-2xl">
-            <h1 className="font-display font-medium text-[56px] lg:text-[64px] leading-[1.05] tracking-[-0.01em] text-on-surface mb-6">
-              Real-Time NSE Signals That <span className="text-primary font-semibold">Actually Work</span>
+            <h1 className="text-6xl md:text-7xl font-black leading-[1] tracking-tighter mb-8">
+              Trade with <br/>
+              <span className="text-primary text-glow-green italic">Institutional</span> <br/>
+              Precision.
             </h1>
 
-            <p className="text-on-surface-muted text-[18px] font-body leading-relaxed mb-10 max-w-xl">
-              87.3% win rate. Entry, SL & Target delivered instantly to Telegram. Stop guessing and start executing with institutional precision.
+            <p className="text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10 font-medium">
+              Join 2,400+ serious traders using the Indian market&apos;s most precise signal engine. 
+              Real-time entry, targets, and risk parameters delivered instantly.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Link href="/register" className="btn-primary text-base px-8 py-4 w-full sm:w-auto">
-                Start Receiving Signals
+            <div className="flex flex-col sm:flex-row gap-5 mb-12">
+              <Link href="/register">
+                <button className="btn-primary py-4 px-10 text-lg group">
+                  Start Trading
+                  <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
               </Link>
-              <Link href="#pricing" className="btn-ghost text-base px-10 py-4 w-full sm:w-auto hover:bg-[#5DD62C]/5 transition-colors">
-                See Plans
+              <Link href="/pricing">
+                <button className="btn-ghost py-4 px-10 text-lg border-zinc-800 hover:border-zinc-700">
+                  View Access Plans
+                </button>
               </Link>
             </div>
 
-            {/* Trust row */}
-            <div className="flex flex-col gap-1.5 text-on-surface-muted text-[14px] font-body">
-              <div className="flex items-center gap-6">
-                <span className="flex items-center gap-2"><span className="text-secondary">✓</span> 2,400+ traders</span>
-                <span className="flex items-center gap-2"><span className="text-secondary">✓</span> ₹4.2Cr+ profits generated</span>
+            <div className="flex items-center gap-8 py-6 border-t border-white/5">
+              <div className="flex -space-x-3">
+                {[1, 2, 3, 4].map((i) => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[#050505] bg-zinc-800" />
+                ))}
               </div>
-              <span className="text-[13px] opacity-70 italic">(last 3 months, 1,200+ trades verified)</span>
+              <div className="text-sm">
+                <p className="font-bold text-white">Join 2,400+ Elite Members</p>
+                <p className="text-zinc-500">₹4.2Cr+ total member profits</p>
+              </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right: Glassmorphic signal card hero */}
-          <div className="relative hidden lg:flex justify-end items-center perspective-1000">
-            <div className="relative w-full max-w-md bg-surface/80 glass-card p-8 shadow-glow-xl border-outline-variant hover:border-primary/30 transition-colors duration-500">
-              
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-3">
-                  <div className="bg-primary/10 border border-primary/20 text-primary text-xs font-bold px-3 py-1 rounded-full">
-                    ACTIVE BUY
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative hidden lg:block"
+          >
+            <div className="pro-glow p-[2px] rounded-[32px]">
+              <div className="bg-zinc-900/40 backdrop-blur-2xl border border-white/10 rounded-[30px] p-8 shadow-2xl">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="px-3 py-1 bg-primary text-black font-black text-[10px] uppercase rounded">Live Signal</div>
+                    <span className="text-zinc-500 text-xs font-bold uppercase tracking-widest">NSE: BANKNIFTY</span>
                   </div>
-                  <span className="text-on-surface-muted text-xs">NSE: RELIANCE</span>
+                  <TrendingUp className="text-primary w-5 h-5" />
                 </div>
-                <div className="flex gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+
+                <div className="mb-8">
+                  <p className="text-zinc-500 text-sm font-bold uppercase tracking-wider mb-2">Current Setup</p>
+                  <h3 className="text-4xl font-black text-white mb-2">Long Position</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-primary text-2xl font-black">₹44,520</span>
+                    <span className="text-zinc-600 text-sm font-bold uppercase">Optimal Entry</span>
+                  </div>
                 </div>
-              </div>
 
-              <div className="mb-6">
-                <h3 className="text-on-surface font-display font-semibold text-3xl tracking-tight mb-1">Reliance Ind.</h3>
-                <p className="text-primary font-body text-xl font-medium">₹2,450.00 <span className="text-sm text-on-surface-muted">Entry</span></p>
-              </div>
+                <div className="space-y-4 mb-8">
+                  <div className="p-4 bg-black/40 border border-white/5 rounded-2xl flex justify-between items-center transition-colors hover:border-primary/30">
+                    <span className="text-zinc-400 font-bold text-sm uppercase">Target 1</span>
+                    <span className="text-primary text-xl font-black">₹44,800</span>
+                  </div>
+                  <div className="p-4 bg-black/40 border border-white/5 rounded-2xl flex justify-between items-center transition-colors hover:border-red-500/30">
+                    <span className="text-zinc-400 font-bold text-sm uppercase">Stop Loss</span>
+                    <span className="text-red-500 text-xl font-black">₹44,350</span>
+                  </div>
+                </div>
 
-              {/* Animated chart line sequence */}
-              <div className="h-24 w-full mb-6 relative">
-                <svg viewBox="0 0 200 60" className="w-full h-full overflow-visible">
-                  <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#5DD62C" stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="#5DD62C" stopOpacity="0" />
-                  </linearGradient>
-                  
-                  {/* Subtle grid */}
-                  <line x1="0" y1="20" x2="200" y2="20" stroke="rgba(255,255,255,0.05)" strokeDasharray="4 4" />
-                  <line x1="0" y1="40" x2="200" y2="40" stroke="rgba(255,255,255,0.05)" strokeDasharray="4 4" />
-
-                  {/* Chart shadow */}
-                  <polygon
-                    points="0,60 10,50 30,55 50,45 80,48 110,30 140,35 170,10 200,15 200,60"
-                    fill="url(#glow)"
+                <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ width: '0%' }}
+                    animate={{ width: '65%' }}
+                    transition={{ duration: 2, delay: 1 }}
+                    className="h-full bg-primary shadow-[0_0_15px_rgba(34,197,94,0.5)]"
                   />
-                  {/* Active Line */}
-                  <polyline
-                    points="0,60 10,50 30,55 50,45 80,48 110,30 140,35 170,10 200,15"
-                    fill="none"
-                    stroke="#5DD62C"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="relative animate-[dash_10s_linear_infinite]"
-                  />
-                  
-                  {/* Target Point */}
-                  <circle cx="200" cy="15" r="4" fill="#0B0F0C" stroke="#5DD62C" strokeWidth="2" className="animate-pulse" />
-                </svg>
-              </div>
-
-              <div className="flex justify-between items-center bg-black/40 rounded-xl p-4 border border-white/5">
-                <div>
-                  <p className="text-[11px] text-on-surface-muted font-label uppercase tracking-widest mb-1">Target</p>
-                  <p className="text-on-surface font-display font-medium text-lg">₹2,520</p>
                 </div>
-                <div className="h-8 w-px bg-white/10" />
-                <div>
-                  <p className="text-[11px] text-on-surface-muted font-label uppercase tracking-widest mb-1">Stop Loss</p>
-                  <p className="text-red-400 font-display font-medium text-lg">₹2,430</p>
+                <div className="flex justify-between mt-3 text-[10px] font-black uppercase text-zinc-600 tracking-tighter">
+                  <span>Entry Range Connected</span>
+                  <span className="text-primary">In Profit +12%</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── SECTION 2: STATS BAR ── */}
-      <section className="bg-surface/30 border-y border-outline-variant">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-left md:text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-primary font-display font-semibold text-[40px] leading-tight mb-2">{stat.value}</p>
-                <p className="text-on-surface font-medium text-[16px] mb-1">{stat.label}</p>
-                <p className="text-on-surface-muted text-[13px] font-body">{stat.context}</p>
+            {/* Float Elements */}
+            <div className="absolute -bottom-6 -left-6 bg-white text-black p-4 rounded-2xl shadow-2xl border border-white/20">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                  <ArrowUpRight className="text-primary w-5 h-5" />
+                </div>
+                <div>
+                  <p className="font-black text-sm tracking-tight">Active ROI</p>
+                  <p className="text-zinc-500 text-xs font-bold leading-none">REAL-TIME DATA</p>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── SECTION 3: FEATURES ── */}
-      <section className="py-28 md:py-40 fade-up [animation-delay:200ms]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* ── STATS BAR ── */}
+      <section className="py-24 border-y border-white/5 relative bg-[#080808]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+          {stats.map((stat, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <h4 className="text-4xl md:text-5xl font-black text-white mb-2 tracking-tighter">{stat.value}</h4>
+              <p className="text-primary font-bold uppercase text-xs tracking-widest mb-1">{stat.label}</p>
+              <p className="text-zinc-600 text-[10px] font-bold uppercase mb-1">{stat.context}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── FEATURES ── */}
+      <section id="features" className="py-40 relative">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-24">
-            <h2 className="font-display font-semibold text-5xl sm:text-6xl tracking-[-0.01em] text-on-surface mb-8">
-              Trade With Complete Clarity
-            </h2>
-            <p className="text-on-surface-muted text-[19px] leading-[1.6] font-body max-w-2xl mx-auto">
-              We remove the noise. You get pure, data-backed execution triggers designed to consistently grow your portfolio.
-            </p>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">Trade with Total <span className="text-primary italic">Clarity.</span></h2>
+            <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">We strip away the noise. You get pure, institutional-grade directives designed for one thing: Execution.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                className="glass-card glass-card-hover p-10"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((f, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="p-8 rounded-3xl bg-zinc-900/20 border border-white/5 transition-all hover:bg-zinc-900/40 hover:border-primary/20 group"
               >
-                <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center text-2xl mb-6">
+                <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-2xl flex items-center justify-center text-primary mb-6 transition-colors group-hover:bg-primary group-hover:text-black">
                   {f.icon}
                 </div>
-                <h3 className="font-display font-medium text-on-surface text-[20px] tracking-tight mb-3">{f.title}</h3>
-                <p className="text-on-surface-muted text-[15px] font-body leading-relaxed">{f.desc}</p>
-              </div>
+                <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{f.title}</h3>
+                <p className="text-zinc-500 text-sm font-medium leading-relaxed">{f.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── SECTION 4: SIGNAL PREVIEW ── */}
-      <section id="preview" className="py-28 md:py-40 bg-surface/50 border-y border-outline-variant overflow-hidden fade-up [animation-delay:300ms]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="glass-card p-10 border-primary/20 shadow-[0_8px_40px_rgba(0,0,0,0.3)] relative max-w-lg mx-auto lg:mx-0">
-                <div className="absolute -top-3 left-6 flex gap-2">
-                  <span className="bg-primary text-black font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-sm">New Alert</span>
-                  <span className="bg-[#1DA1F2] text-white font-bold text-[10px] uppercase tracking-widest px-3 py-1 rounded-sm">Telegram</span>
-                </div>
-                
-                <div className="mt-4">
-                  <p className="font-display text-2xl text-on-surface font-semibold mb-1">BUY: RELIANCE</p>
-                  <p className="text-on-surface-muted text-sm mb-6">Entry Zone: ₹2445 - ₹2450</p>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-black/40 rounded-lg p-4 border border-outline-variant flex justify-between items-center">
-                      <span className="text-on-surface-muted text-sm">Target</span>
-                      <span className="text-primary font-display font-medium text-lg">₹2520.00</span>
-                    </div>
-                    <div className="bg-black/40 rounded-lg p-4 border border-outline-variant flex justify-between items-center">
-                      <span className="text-on-surface-muted text-sm">Stop Loss</span>
-                      <span className="text-red-400 font-display font-medium text-lg">₹2430.00</span>
-                    </div>
-                  </div>
-
-                  {/* Progression Bar */}
-                  <div className="mt-8">
-                    <div className="flex justify-between text-[11px] font-label text-on-surface-muted uppercase tracking-wider mb-2">
-                      <span>Entry</span>
-                      <span className="text-primary">Targeting +2.8%</span>
-                    </div>
-                    <div className="h-1.5 w-full bg-black rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-[35%] rounded-full shadow-[0_0_10px_#5DD62C]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <h2 className="font-display font-semibold text-4xl sm:text-5xl tracking-tight text-on-surface mb-6">
-                Execution Without Emotion.
-              </h2>
-              <p className="text-on-surface-muted text-[18px] font-body leading-relaxed mb-8">
-                Receive institutional-grade signals formatted perfectly for instant execution. Every alert includes strict risk management parameters, eliminating greed and fear from your trading lifecycle.
-              </p>
-              <ul className="space-y-4 font-body text-on-surface-muted">
-                <li className="flex items-center gap-3"><span className="text-primary">✓</span> Clear Buy / Sell Directives</li>
-                <li className="flex items-center gap-3"><span className="text-primary">✓</span> Calculated Stop Losses</li>
-                <li className="flex items-center gap-3"><span className="text-primary">✓</span> Pre-defined Profit Targets</li>
-                <li className="flex items-center gap-3"><span className="text-primary">✓</span> Instant Telegram Push Delivery</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SECTION 5: PRICING ── */}
-      <section id="pricing" className="py-32 md:py-48 fade-up [animation-delay:400ms]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-24 text-on-surface">
-            <h2 className="font-display font-semibold text-5xl sm:text-6xl tracking-tight mb-6 text-on-surface">
-              Select Your Edge
-            </h2>
-            <p className="text-on-surface-muted text-[19px] leading-[1.6] font-body max-w-xl mx-auto">
-              Choose the precision level that fits your capital. A single profitable trade can pay for an entire year.
-            </p>
+      {/* ── PRICING PREVIEW ── */}
+      <section id="pricing" className="py-40 bg-[#080808] border-y border-white/5 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-24">
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">Secure Your <span className="text-primary italic">Edge.</span></h2>
+            <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">One profitable trade can fund your entire year. Choose your precision level.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 items-stretch">
-            {plans.map((plan) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch pt-8">
+            {plans.map((plan, i) => (
               <div
-                key={plan.name}
-                className={`relative flex flex-col transition-all duration-500 rounded-[24px] overflow-hidden ${
-                  plan.isPopular
-                    ? 'bg-surface/60 border border-primary/40 shadow-[0_12px_48px_rgba(93,214,44,0.12)] md:scale-[1.05] z-10'
-                    : 'bg-surface/30 border border-outline-variant glass-card'
-                } p-10 lg:p-12 group`}
+                key={i}
+                className={`relative flex flex-col p-10 rounded-[32px] transition-all duration-300 ${
+                  plan.isPopular 
+                    ? 'bg-zinc-900/40 border-2 border-primary shadow-[0_0_50px_rgba(34,197,94,0.15)] md:scale-[1.05] z-10 pro-glow' 
+                    : 'bg-zinc-900/10 border border-white/10'
+                }`}
               >
-                {/* Visual Depth: Subtle internal glow for the popular card */}
                 {plan.isPopular && (
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-3xl pointer-events-none" />
-                )}
-
-                {/* Badge */}
-                {plan.badge && (
-                  <div className={`absolute -top-4 left-1/2 -translate-x-1/2 text-[10px] font-bold tracking-[0.1em] uppercase px-5 py-2 rounded-full ${
-                    plan.isPopular ? 'bg-primary text-black' : 'bg-[#151916] border border-outline-variant text-primary'
-                  }`}>
-                    {plan.badge}
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-black font-black text-[10px] px-5 py-1.5 rounded-full uppercase tracking-widest shadow-2xl">
+                    Most Popular
                   </div>
                 )}
-
-                <h3 className="font-display font-medium text-on-surface text-[24px] mb-2 mt-4 tracking-tight">{plan.name}</h3>
-
-                <div className="mb-8 flex items-baseline">
-                  {plan.originalPrice && (
-                    <span className="text-on-surface-muted line-through text-xl mr-3 font-medium opacity-50">₹{plan.originalPrice}</span>
-                  )}
-                  <span className="font-display font-semibold text-on-surface text-[52px] tracking-tight">₹{plan.price}</span>
-                  <span className="text-on-surface-muted text-sm ml-2 font-medium opacity-70">{plan.period}</span>
+                
+                <h3 className="text-2xl font-black text-white mb-2">{plan.name}</h3>
+                <div className="flex items-baseline gap-1 mb-8">
+                  <span className="text-zinc-500 text-xl font-bold">₹</span>
+                  <span className="text-5xl font-black text-white tracking-tighter">{plan.price}</span>
+                  <span className="text-zinc-600 font-bold ml-1">{plan.period}</span>
                 </div>
 
-                <div className="w-full h-px bg-white/5 mb-8" />
-
-                <ul className="space-y-4 mb-10 flex-1">
-                  {plan.features.map((feat) => (
-                    <li key={feat} className="flex items-start gap-4 text-on-surface-muted text-[15px] font-body leading-relaxed group-hover:text-on-surface transition-colors">
-                      <span className="text-primary mt-1 text-[12px]">✓</span>
-                      {feat}
+                <ul className="space-y-4 mb-12 flex-grow">
+                  {plan.features.map((feat, j) => (
+                    <li key={j} className="flex items-center gap-3 group">
+                      <CheckCircle2 className={`w-4 h-4 ${plan.isPopular ? 'text-primary' : 'text-zinc-600 group-hover:text-zinc-400'}`} />
+                      <span className="text-zinc-400 text-sm font-medium">{feat}</span>
                     </li>
                   ))}
                 </ul>
 
-                <Link 
-                  href="/register" 
-                  className={`w-full text-center py-4.5 rounded-xl font-semibold tracking-wide transition-all duration-300 ${
-                    plan.isPopular 
-                      ? 'bg-primary text-black hover:bg-[#6AF033] hover:shadow-[0_8px_24px_rgba(93,214,44,0.3)] hover:-translate-y-0.5' 
-                      : 'bg-white/5 border border-white/10 text-on-surface hover:bg-white/10'
-                  }`}
-                >
-                  {plan.name === 'Elite' ? 'Go Elite' : 'Start Receiving Signals'}
+                <Link href="/register">
+                  <button className={`w-full py-4 font-bold uppercase tracking-widest text-xs transition-all ${plan.isPopular ? 'btn-primary' : 'btn-ghost'}`}>
+                    Select {plan.name}
+                  </button>
                 </Link>
-                
-                <p className="text-center text-on-surface-muted text-[11px] mt-5 opacity-40 font-body">
-                  Secure checkout via Razorpay &bull; Instant Access
-                </p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── CALL TO ACTION ── */}
+      <section className="py-40 relative">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="p-16 rounded-[48px] bg-gradient-to-b from-zinc-900/50 to-transparent border border-white/5 relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50" />
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8 tracking-tighter">Ready to Trade like an <span className="text-primary italic">Institutional Desk?</span></h2>
+            <p className="text-zinc-400 text-lg mb-12 max-w-xl mx-auto font-medium">Stop guessing. Sign up today and receive your first institutional-grade NSE signal instantly.</p>
+            <Link href="/register">
+              <button className="btn-primary py-5 px-12 text-xl font-black shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                Access Signals Now
+              </button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── FOOTER MINI ── */}
+      <footer className="py-20 border-t border-white/5 bg-[#050505]">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-16">
+          <div className="col-span-2">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+                <Rocket className="w-4 h-4 text-primary" />
+              </div>
+              <span className="text-lg font-black text-white tracking-tighter">CAPITAL GURU</span>
+            </div>
+            <p className="text-zinc-500 text-sm max-w-sm leading-relaxed mb-8">
+              The Indian market&apos;s most precise options & equity signal engine. 
+              Institutional quality datasets decoded into simple executable triggers.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" aria-label="Follow us on Instagram" className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center hover:bg-zinc-800 transition-colors">
+                <Camera className="w-5 h-5 text-zinc-400" />
+              </a>
+              <a href="#" aria-label="Contact support via Email" className="w-10 h-10 rounded-xl bg-zinc-900 flex items-center justify-center hover:bg-zinc-800 transition-colors">
+                <Mail className="w-5 h-5 text-zinc-400" />
+              </a>
+            </div>
+          </div>
           
-          <div className="mt-16 text-center text-on-surface-muted text-sm font-body">
-            ⚠️ <span className="text-primary font-medium">Limited Seats:</span> Due to signal execution volume, we cap new intake periodically.
+          <div>
+            <h5 className="text-white font-bold uppercase text-xs tracking-widest mb-8">Product</h5>
+            <ul className="space-y-4 text-sm text-zinc-500 font-medium">
+              <li><Link href="#features" className="hover:text-primary transition-colors">Signals</Link></li>
+              <li><Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link></li>
+              <li><Link href="/disclaimer" className="hover:text-primary transition-colors">Risk Disclaimer</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h5 className="text-white font-bold uppercase text-xs tracking-widest mb-8">Support</h5>
+            <ul className="space-y-4 text-sm text-zinc-500 font-medium">
+              <li><a href="mailto:support@thecapitalguru.net" className="hover:text-primary transition-colors">Contact Support</a></li>
+              <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+            </ul>
           </div>
         </div>
-      </section>
-
-      {/* ── SECTION 6: CONVERSION FOOTER / GUARANTEE ── */}
-      <section className="py-20 bg-primary/5 border-t border-primary/10 rounded-t-[40px] mt-10 text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-display font-semibold text-3xl sm:text-4xl text-on-surface mb-6">7-Day Satisfaction Guarantee</h2>
-          <p className="text-on-surface-muted text-lg mb-10">We stand entirely behind our edge. Follow our risk management rules, and if you aren&apos;t profitable, our support team will review and honor our commitment to your trading journey.</p>
-          <Link href="/register" className="btn-primary text-base px-10 py-4 shadow-glow-lg">Build Your Portfolio Today</Link>
+        <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 text-center">
+          <p className="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
+            &copy; {new Date().getFullYear()} The Capital Guru. Institutional Precision.
+          </p>
         </div>
-      </section>
-
-      <Footer />
-    </>
+      </footer>
+    </div>
   )
 }

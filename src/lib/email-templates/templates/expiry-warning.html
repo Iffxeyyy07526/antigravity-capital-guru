@@ -3,34 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Access Expiring Soon | The Capital Guru</title>
+  <title>Your Access is Expiring | The Capital Guru</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-    body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important; background-color: #0B0B0B; font-family: 'Inter', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-    table { border-spacing: 0; border-collapse: collapse; }
-    td { padding: 0; }
-    img { border: 0; }
-    .wrapper { width: 100%; table-layout: fixed; background-color: #0B0B0B; padding-bottom: 60px; }
-    .main { background-color: #161616; margin: 0 auto; width: 100%; max-width: 600px; border-spacing: 0; color: #E0E0E0; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1535320903710-d993d3d77d29?auto=format&fit=crop&q=80&w=800') center/cover; padding: 60px 40px; text-align: center; }
-    .logo { color: #5DD62C; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; margin-bottom: 40px; }
-    .headline { font-size: 32px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
-    .subhead { font-size: 16px; color: #FACC15; line-height: 1.5; font-weight: 600; }
-    .content { padding: 40px 50px; text-align: center; }
-    .body-text { font-size: 16px; line-height: 1.6; color: #999999; margin-bottom: 30px; }
-    .cta-container { margin: 40px 0; }
-    .button { background-color: #5DD62C; color: #000000 !important; font-weight: 700; padding: 18px 45px; border-radius: 12px; text-decoration: none; font-size: 16px; display: inline-block; letter-spacing: 0.5px; }
-    .social-section { background-color: #1A1A1A; padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-    .social-text { color: #FFFFFF; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
-    .social-link { color: #5DD62C; text-decoration: none; font-size: 14px; font-weight: 600; }
-    .footer { padding: 40px; text-align: center; }
-    .footer-text { font-size: 12px; color: #555555; line-height: 1.8; }
-    .alert-box { background: rgba(250, 204, 21, 0.05); border: 1px solid rgba(250, 204, 21, 0.2); border-radius: 12px; padding: 25px; margin-top: 30px; text-align: left; }
-    .alert-title { color: #FACC15; font-weight: 700; font-size: 14px; margin-bottom: 10px; text-transform: uppercase; }
-    .gold-accent { color: #C5A059; font-weight: 600; }
-    .disconnection-note { margin: 0; font-size: 14px; color: #BBBBBB; }
-    .small-muted { font-size: 14px; opacity: 0.6; }
-    .supp-link { color: #666; }
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: #0B0B0B;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #0B0B0B;
+      padding-bottom: 60px;
+    }
+    .main {
+      background-color: #161616;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px;
+      border-spacing: 0;
+      color: #E0E0E0;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-collapse: collapse;
+    }
+    .hero {
+      background-color: #1a1a1a;
+      padding: 0;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .hero-content {
+      padding: 60px 40px;
+    }
+    .logo-container {
+      margin-bottom: 40px;
+    }
+    .logo-text {
+      color: #5DD62C;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    .headline {
+      font-size: 32px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      margin-top: 0;
+    }
+    .expiry-text {
+      font-size: 16px;
+      color: #FACC15;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 600;
+    }
+    .content {
+      padding: 40px 50px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .body-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #D1D1D1;
+      margin-bottom: 30px;
+    }
+    .gold-accent {
+      color: #C5A059;
+      font-weight: 600;
+    }
+    .alert-box {
+      background-color: #1e1d18; /* Fallback for rgba(250, 204, 21, 0.05) over #161616 background */
+      border: 1px solid #4d4421; /* Fallback for rgba(250, 204, 21, 0.2) */
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .alert-title {
+      color: #FACC15;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    .alert-note {
+      margin: 0;
+      font-size: 14px;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+    .cta-container {
+      margin: 40px 0;
+    }
+    .button {
+      background-color: #5DD62C;
+      color: #000000 !important;
+      font-weight: 700;
+      padding: 18px 45px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .support-contact {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #94A3B8;
+      margin-bottom: 0;
+    }
+    .mailto-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .social-section {
+      background-color: #1A1A1A;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #222222; /* Fallback for rgba(255,255,255,0.05) */
+      border-collapse: collapse;
+    }
+    .social-header {
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .social-link {
+      color: #5DD62C;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .footer-primary {
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    .footer-secondary {
+      font-size: 11px;
+      color: #444444;
+      margin: 0;
+    }
+    .unsubscribe-link {
+      color: #5DD62C;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -38,43 +174,50 @@
     <table class="main" align="center">
       <tr>
         <td class="hero">
-          <div class="logo">THE CAPITAL GURU</div>
-          <h1 class="headline">Maintain Your Edge</h1>
-          <p class="subhead">Your access is scheduled to expire soon.</p>
+          <div class="hero-content">
+            <div class="logo-container">
+              <span class="logo-text">THE CAPITAL GURU</span>
+            </div>
+            <h1 class="headline">Maintain Your Edge</h1>
+            <p class="expiry-text">Your access is scheduled to expire in {{days}} days.</p>
+          </div>
         </td>
       </tr>
       <tr>
         <td class="content">
           <p class="body-text">
-            Hello {{name}}, your premium access to <span class="gold-accent">The Capital Guru</span> signal network is coming to an end. To avoid disconnection from our private Telegram channel and maintain your daily signal flow, please renew your plan.
+            Hello {{name}}, your premium access to <span class="gold-accent">The Capital Guru</span> signal network is coming to an end. To maintain your daily market edge, please renew your subscription.
           </p>
           
           <div class="alert-box">
             <div class="alert-title">Disconnection Warning</div>
-            <p class="disconnection-note">
-              Once your subscription expires, your Telegram access will be revoked automatically. A single profitable trade often covers more than the cost of a full year's access. Don't lose the momentum.
+            <p class="alert-note">
+              Once your subscription expires, your Telegram access will be revoked automatically. A single profitable trade often covers more than the cost of a full year's access.
             </p>
           </div>
 
-          <div class="cta-container" align="center">
+          <div class="cta-container">
             <a href="{{renewal_link}}" class="button">Renew Subscription Now</a>
           </div>
-          <p class="body-text small-muted">
-            Questions? Reply to this email or contact our desk.
+          <p class="support-contact">
+            Questions? Contact us at <a href="mailto:support@thecapitalguru.net" class="mailto-link">support@thecapitalguru.net</a>
           </p>
         </td>
       </tr>
       <tr>
         <td class="social-section">
-          <div class="social-text">Follow us for insights & updates</div>
-          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">👉 Follow on Instagram</a>
+          <div class="social-header">Follow us for insights & updates</div>
+          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">Follow on Instagram</a>
         </td>
       </tr>
       <tr>
         <td class="footer">
-          <p class="footer-text">
-            &copy; 2024 The Capital Guru. Precision and Profitability.<br>
-            <span class="supp-link">Institutional signals for retail traders.</span>
+          <p class="footer-primary">
+            &copy; {{current_year}} The Capital Guru. Precision and Profitability.<br>
+            {{company_address}}
+          </p>
+          <p class="footer-secondary">
+            To stop receiving these emails, <a href="{{unsubscribe_link}}" class="unsubscribe-link">unsubscribe here</a>.
           </p>
         </td>
       </tr>

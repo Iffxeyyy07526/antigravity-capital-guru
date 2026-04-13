@@ -5,29 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Verify Your Email | The Capital Guru</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-    body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important; background-color: #0B0B0B; font-family: 'Inter', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-    table { border-spacing: 0; border-collapse: collapse; }
-    td { padding: 0; }
-    img { border: 0; }
-    .wrapper { width: 100%; table-layout: fixed; background-color: #0B0B0B; padding-bottom: 60px; }
-    .main { background-color: #161616; margin: 0 auto; width: 100%; max-width: 600px; border-spacing: 0; color: #E0E0E0; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1611974717414-78330caec704?auto=format&fit=crop&q=80&w=800') center/cover; padding: 60px 40px; text-align: center; }
-    .logo { color: #5DD62C; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; margin-bottom: 40px; }
-    .headline { font-size: 32px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
-    .subhead { font-size: 16px; color: #999999; line-height: 1.5; }
-    .content { padding: 40px 50px; text-align: center; }
-    .body-text { font-size: 16px; line-height: 1.6; color: #999999; margin-bottom: 30px; }
-    .cta-container { margin: 40px 0; }
-    .button { background-color: #5DD62C; color: #000000 !important; font-weight: 700; padding: 18px 45px; border-radius: 12px; text-decoration: none; font-size: 16px; display: inline-block; letter-spacing: 0.5px; }
-    .social-section { background-color: #1A1A1A; padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-    .social-text { color: #FFFFFF; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
-    .social-link { color: #5DD62C; text-decoration: none; font-size: 14px; font-weight: 600; }
-    .footer { padding: 40px; text-align: center; }
-    .footer-text { font-size: 12px; color: #555555; line-height: 1.8; }
-    .gold-accent { color: #C5A059; font-weight: 600; }
-    .small-muted { font-size: 14px; opacity: 0.6; }
-    .supp-link { color: #666; }
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: #0B0B0B;
+      font-family: 'Inter', -apple-system, blinkmacsystemfont, 'segoe ui', roboto, helvetica, arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #0B0B0B;
+      padding-bottom: 60px;
+    }
+    .main {
+      background-color: #161616;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px;
+      border-spacing: 0;
+      color: #E0E0E0;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-collapse: collapse;
+    }
+    .hero {
+      background-color: #0F172A;
+      padding: 60px 40px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .branding-container {
+      margin-bottom: 40px;
+    }
+    .logo-text {
+      color: #5DD62C;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    .headline {
+      font-size: 32px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      margin-top: 0;
+    }
+    .subhead {
+      font-size: 16px;
+      color: #FFFFFF;
+      line-height: 1.5;
+      margin: 0;
+      opacity: 0.8;
+    }
+    .content {
+      padding: 40px 50px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .body-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #D1D1D1;
+      margin-bottom: 30px;
+    }
+    .cta-container {
+      margin: 40px 0;
+    }
+    .button {
+      background-color: #5DD62C;
+      color: #000000 !important;
+      font-weight: 700;
+      padding: 18px 45px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .disclaimer {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #D1D1D1;
+      margin-bottom: 0;
+      opacity: 0.6;
+    }
+    .gold-accent {
+      color: #C5A059;
+      font-weight: 600;
+    }
+    .social-section {
+      background-color: #1A1A1A;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #222222; /* Fallback for rgba(255,255,255,0.05) */
+      border-collapse: collapse;
+    }
+    .social-text {
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .social-link {
+      color: #5DD62C;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #666666;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .support-text {
+      color: #444;
+    }
   </style>
 </head>
 <body>
@@ -35,7 +140,9 @@
     <table class="main" align="center">
       <tr>
         <td class="hero">
-          <div class="logo">THE CAPITAL GURU</div>
+          <div class="branding-container">
+            <span class="logo-text">THE CAPITAL GURU</span>
+          </div>
           <h1 class="headline">Secure Your Account</h1>
           <p class="subhead">One step away from professional trading signals.</p>
         </td>
@@ -45,10 +152,10 @@
           <p class="body-text">
             Welcome to the elite circle, {{name}}. To maintain the highest level of security and ensure you receive our premium NSE signals, please verify your email address.
           </p>
-          <div class="cta-container" align="center">
+          <div class="cta-container">
             <a href="{{confirmation_link}}" class="button">Verify Email Address</a>
           </div>
-          <p class="body-text small-muted">
+          <p class="disclaimer">
             If you didn't create an account with <span class="gold-accent">The Capital Guru</span>, please ignore this email.
           </p>
         </td>
@@ -56,15 +163,15 @@
       <tr>
         <td class="social-section">
           <div class="social-text">Follow us for insights & updates</div>
-          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">👉 Follow on Instagram</a>
+          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">Follow on Instagram</a>
         </td>
       </tr>
       <tr>
         <td class="footer">
           <p class="footer-text">
-            &copy; 2024 The Capital Guru. All rights reserved.<br>
+            &copy; {{current_year}} The Capital Guru. All rights reserved.<br>
             Institutional grade trading signals for serious market participants.<br>
-            <span class="supp-link">support@thecapitalguru.net</span>
+            <span class="support-text">support@thecapitalguru.net</span>
           </p>
         </td>
       </tr>

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     "India's most precise stock market signal platform. Get real-time buy/sell signals for NSE & BSE stocks delivered directly to your Telegram.",
   keywords: ['stock market signals', 'NSE signals', 'BSE signals', 'Indian stock market', 'trading signals', 'intraday signals'],
+  verification: {
+    google: 'bzs1fz4fAgQHW30f7nnHkVAJMxNvFZVpJVnWCxd6khc',
+  },
   openGraph: {
     title: 'The Capital Guru | NSE/BSE Stock Market Signals',
     description: "India's most precise stock market signal platform.",

@@ -5,31 +5,158 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to the Inner Circle | The Capital Guru</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-    body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important; background-color: #0B0B0B; font-family: 'Inter', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-    table { border-spacing: 0; border-collapse: collapse; }
-    td { padding: 0; }
-    img { border: 0; }
-    .wrapper { width: 100%; table-layout: fixed; background-color: #0B0B0B; padding-bottom: 60px; }
-    .main { background-color: #161616; margin: 0 auto; width: 100%; max-width: 600px; border-spacing: 0; color: #E0E0E0; border-radius: 24px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
-    .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1642543448553-902264560b0e?auto=format&fit=crop&q=80&w=800') center/cover; padding: 60px 40px; text-align: center; }
-    .logo { color: #5DD62C; font-weight: 700; font-size: 20px; letter-spacing: -0.5px; margin-bottom: 40px; }
-    .headline { font-size: 32px; font-weight: 700; color: #FFFFFF; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.5px; }
-    .subhead { font-size: 16px; color: #999999; line-height: 1.5; }
-    .content { padding: 40px 50px; text-align: center; }
-    .body-text { font-size: 16px; line-height: 1.6; color: #999999; margin-bottom: 30px; }
-    .cta-container { margin: 40px 0; }
-    .button { background-color: #5DD62C; color: #000000 !important; font-weight: 700; padding: 18px 45px; border-radius: 12px; text-decoration: none; font-size: 16px; display: inline-block; letter-spacing: 0.5px; }
-    .social-section { background-color: #1A1A1A; padding: 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
-    .social-text { color: #FFFFFF; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
-    .social-link { color: #5DD62C; text-decoration: none; font-size: 14px; font-weight: 600; }
-    .footer { padding: 40px; text-align: center; }
-    .footer-text { font-size: 12px; color: #555555; line-height: 1.8; }
-    .feature-list { text-align: left; margin: 30px 0; padding-left: 0; list-style: none; }
-    .feature-item { color: #BBBBBB; font-size: 14px; margin-bottom: 12px; padding-left: 24px; position: relative; }
-    .feature-item:before { content: '✓'; position: absolute; left: 0; color: #5DD62C; font-weight: 700; }
-    .gold-accent { color: #C5A059; font-weight: 600; }
-    .supp-link { color: #666; }
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 100%;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: #0B0B0B;
+      font-family: 'Inter', -apple-system, blinkmacsystemfont, 'segoe ui', roboto, helvetica, arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #0B0B0B;
+      padding-bottom: 60px;
+    }
+    .main {
+      background-color: #161616;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 600px;
+      border-spacing: 0;
+      color: #E0E0E0;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-collapse: collapse;
+    }
+    .hero {
+      background-color: #0F172A;
+      padding: 60px 40px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .brand-container {
+      margin-bottom: 40px;
+    }
+    .logo-text {
+      color: #5DD62C;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    .headline {
+      font-size: 32px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+      margin-top: 0;
+    }
+    .subhead {
+      font-size: 16px;
+      color: #FFFFFF;
+      line-height: 1.5;
+      margin: 0;
+      font-weight: 400;
+    }
+    .content {
+      padding: 40px 50px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #D1D1D1;
+      margin-bottom: 30px;
+    }
+    .gold-accent {
+      color: #C5A059;
+      font-weight: 600;
+    }
+    .feature-list {
+      text-align: left;
+      margin: 30px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .feature-item {
+      color: #D1D1D1;
+      font-size: 14px;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 24px;
+    }
+    .checkmark {
+      color: #5DD62C;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+    .cta-container {
+      margin: 40px 0;
+    }
+    .button {
+      background-color: #5DD62C;
+      color: #000000 !important;
+      font-weight: 700;
+      padding: 18px 45px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .alert-box {
+      background-color: #1a1e1b; /* Fallback for rgba(255, 255, 255, 0.02) over #161616 background */
+      border: 1px solid #222222; /* Fallback for rgba(255,255,255,0.05) */
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 30px;
+      text-align: left;
+    }
+    .social-section {
+      background-color: #1A1A1A;
+      padding: 30px;
+      text-align: center;
+      border-top: 1px solid #222222; /* Fallback for rgba(255,255,255,0.05) */
+      border-collapse: collapse;
+    }
+    .social-link {
+       color: #5DD62C; 
+       font-weight: 600; 
+       text-decoration: none;
+    }
+    .social-header {
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .social-link {
+      color: #5DD62C;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .footer {
+      padding: 40px;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.8;
+      margin: 0;
+    }
+    .slogan {
+      color: #94A3B8;
+    }
   </style>
 </head>
 <body>
@@ -37,44 +164,47 @@
     <table class="main" align="center">
       <tr>
         <td class="hero">
-          <div class="logo">THE CAPITAL GURU</div>
+          <div class="brand-container">
+            <span class="logo-text">THE CAPITAL GURU</span>
+          </div>
           <h1 class="headline">Phase One Complete</h1>
           <p class="subhead">Your journey to market mastery begins here.</p>
         </td>
       </tr>
       <tr>
         <td class="content">
-          <p class="body-text">
-            Hello {{name}}, you've officially joined the registry. <span class="gold-accent">The Capital Guru</span> is not a typical advisory; we provide mechanical, institutional-grade signals backed by rigorous option chain analysis.
+          <p class="intro-text">
+            Hello {{name}}, you've officially joined the registry. <span class="gold-accent">The Capital Guru</span> is not a typical advisory; we provide mechanical signals backed by rigorous analytics.
           </p>
           
           <ul class="feature-list">
-            <li class="feature-item">Daily High-Probability NSE Signals</li>
-            <li class="feature-item">Full Entry, Target, and Stop-Loss Levels</li>
-            <li class="feature-item">Private Telegram Community Access</li>
-            <li class="feature-item">Monthly Portfolio Reviews (Elite Plans)</li>
+            <li class="feature-item">
+              <span class="checkmark">✓</span> Daily High-Probability NSE Signals
+            </li>
+            <li class="feature-item">
+              <span class="checkmark">✓</span> Full Entry, Target, and Stop-Loss Levels
+            </li>
+            <li class="feature-item">
+              <span class="checkmark">✓</span> Private Telegram Community Access
+            </li>
           </ul>
 
-          <p class="body-text">
-            Ready to stop guessing and start executing? Choose a plan that fits your trading style and gain immediate access to our private group.
-          </p>
-
-          <div class="cta-container" align="center">
+          <div class="cta-container">
             <a href="{{pricing_link}}" class="button">View Access Plans</a>
           </div>
         </td>
       </tr>
       <tr>
         <td class="social-section">
-          <div class="social-text">Follow us for insights & updates</div>
-          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">👉 Follow on Instagram</a>
+          <div class="social-header">Follow us for insights & updates</div>
+          <a href="https://www.instagram.com/thecapitalguru.in" class="social-link">Follow on Instagram</a>
         </td>
       </tr>
       <tr>
         <td class="footer">
           <p class="footer-text">
-            &copy; 2024 The Capital Guru. Institutional Precision. Minimalist Execution.<br>
-            <span class="supp-link">Level up your trading desk.</span>
+            &copy; {{current_year}} The Capital Guru. Institutional Precision.<br>
+            <span class="slogan">Level up your trading desk.</span>
           </p>
         </td>
       </tr>
